@@ -1,0 +1,245 @@
+@import '../config';
+
+main.finalize-order {
+   @include Flex-c-c;
+   height: 100vh;
+
+   main.content {
+      width: 1050px;
+      max-width: 99%;
+      height: 90%;
+      @include Flex-sb-c;
+
+      h1.summary,
+      h1.products {
+         margin-bottom: .75em;
+         color: $clr-black;
+         font-weight: 600;
+         @include ClampFont(1.2, 5, 1.75);
+         text-transform: uppercase;
+      }
+
+      section.products {
+         width: 55%;
+         height: 100%;
+
+         article.basket-item {
+            @include Flex-sb-c;
+            margin-bottom: .5em;
+            height: clamp(75px, 25vw, 100px);
+            width: 100%;
+            background: whitesmoke;
+            padding: .5em;
+            color: $clr-black;
+            border-radius: .15em;
+            font-family: 'KoHo', sans-serif;
+
+            div.text-info {
+               width: 70%;
+               height: 100%;
+               @include Flex-sb-none;
+               flex-direction: column;
+
+               h4 {
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  @include ClampFont(.8, 3.5, 1);
+               }
+
+               h5 {
+                  font-family: 'Lato', sans-serif;
+                  font-size: 1.2rem;
+               }
+            }
+
+            div.quantity-info {
+               width: 10%;
+               aspect-ratio: 1;
+               @include Flex-c-c;
+               background: rgb(235, 235, 235);
+               border-radius: .15em;
+               border: 1px solid rgb(225, 225, 225);
+               font-weight: 600;
+               @include ClampFont(1, 5, 1.25);
+            }
+
+            figure {
+               margin-right: .5em;
+               aspect-ratio: 1;
+               height: 100%;
+               overflow: hidden;
+               border-radius: .3em;
+
+               img {
+                  @include FullSize;
+                  object-fit: cover;
+               }
+            }
+         }
+      }
+      
+      form.buy-method-cont {
+         width: 40%;
+         min-width: 350px;
+         height: 100%;
+         border-radius: .2em;
+         padding: .5em;
+         position: relative;
+         color: $clr-black;
+         @include Flex-sb-none;
+         flex-direction: column;
+
+         h6.result {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            padding: .75em 0;
+            text-align: center;
+            font-size: 1.1rem;
+            color: $clr-white;
+            font-weight: 700;
+            font-family: 'KoHo', sans-serif;
+
+            &.true { background: green; }
+            &.false { background: red; }
+         }
+
+         section.delivery-method,
+         section.payment-method {
+            padding: .75em;
+            background: rgb(218, 224, 242);
+         }
+
+         section.delivery-method section.delivery,
+         section.payment-method section.payment {
+            &:not(:last-child) { margin-bottom: .5em }
+
+            @include Flex-sb-c;
+            background: whitesmoke;
+            padding: 1em 1.5em;
+
+            input { cursor: pointer; }
+
+            label {
+               font-family: 'Roboto', sans-serif;
+               font-weight: 600;
+               letter-spacing: 1px;
+               @include ClampFont(.8, 4, 1);
+            }
+         }
+
+         section.delivery-method {
+            section.delivery {
+               span {
+                  font-weight: 600;
+                  font-family: 'KoHo', sans-serif;
+               }
+            }
+         }
+         
+         section.payment-method {
+            section {
+               &.payment {
+                  span {
+                     @include Rectangle(30px);
+
+                     svg {
+                        @include FullSize;
+                     }
+                  }
+
+                  &.mastercard {
+                     span { color: orangered; }
+                  }
+
+                  &.paypal {
+                     span { color: royalblue;}
+                  }
+               }
+            }
+         }
+
+         section.summary-price {
+            padding: 1.5em;
+            border-radius: .25em;
+            background: rgb(212, 220, 240);
+            width: 75%;
+            margin: 0 auto;font-family: 'KoHo', sans-serif;
+
+            h4 {
+               font-size: 1.2rem;
+               font-weight: 600;
+
+               &.middle { margin: 1em 0; }
+            }
+
+            h2 {
+               font-size: 2rem;
+               font-weight: 700;
+            }
+         }
+
+         button.order-pay {
+            width: 100%;
+            background: royalblue;
+            padding: .75em 0;
+            outline: 0;
+            border: 0;
+            cursor: pointer;
+            transition: .3s;
+
+            label {
+               font-size: 1.1rem;
+               text-transform: uppercase;
+               color: $clr-white;
+               font-weight: 700;
+               font-family: 'KoHo', sans-serif;
+            }
+
+            &:hover { background: rebeccapurple; }
+         }
+
+         span.home {
+            position: absolute;
+            right: 0;
+            top: 0;
+            @include Rectangle(25px);
+            cursor: pointer;
+
+            svg {
+               @include FullSize;
+            }
+
+            @media (max-width: 480px) {
+               position: fixed;
+               right: 8px;
+               top: 8px;
+            }
+         }
+      }
+
+      @media (max-width: 768px) {
+         flex-direction: column;
+
+         section.products,
+         form.buy-method-cont {
+            width: 98%;
+            min-width: auto;
+         }
+
+         form.buy-method-cont {
+            margin-top: 2em;
+
+            section.summary-price { width: 100%; margin: 1em 0; }
+
+            section.delivery-method {
+               margin-top: 1.5em;
+            }
+
+            section.delivery-method,
+            section.payment-method { padding: 0; }
+         }
+      }
+   }
+}

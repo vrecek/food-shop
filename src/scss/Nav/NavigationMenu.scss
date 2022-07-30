@@ -1,0 +1,80 @@
+@import '../config';
+
+aside.menu {
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 600px;
+   width: 350px;
+   max-width: 100%;
+   background: #000039;
+   border-radius: 0 0 0 .5em;
+   transform: translateX(105%);
+   transition: .5s;
+   padding: .5em 1em;
+   border: 1px solid #000054;
+
+   ul {
+      list-style: none;
+      
+      li {
+         a {
+            color: $clr-white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 1.5em 1em;
+            font-family: 'KoHo', sans-serif;
+            // font-size: 1.1rem;
+            @include ClampFont(.9, 3, 1.1);
+            transition: .4s;
+            @include Flex-none-c;
+            border-radius: .2em;
+
+            svg {
+               width: 20px;
+               height: 20px;
+               margin-right: 1em;
+            }
+
+            &:hover {
+               background: rgba(46, 39, 66, 0.5);
+            }
+         }
+      }
+   }
+
+   div.icon-and-logo {
+      height: 50px;
+      @include Flex-sb-c;
+      margin-bottom: 2em;
+
+      figure {
+         height: 100%;
+         overflow: hidden;
+
+         img {
+            height: 100%;
+         }
+      }
+   }
+
+   div.menu-icon {
+      margin-right: .5em;
+
+      span {
+         top: 50%;
+
+         &:nth-child(1),
+         &:nth-child(2) {
+            transform: rotate(45deg);
+         }
+         &:nth-child(3) {
+            transform: rotate(-45deg);
+         }
+      }
+   }
+
+   @media (max-width: 480px) {
+      height: 100vh;
+   }
+}

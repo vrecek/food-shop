@@ -1,0 +1,200 @@
+@import '../config';
+
+aside.basket {
+   position: fixed;
+   top: 0;
+   right: 0;
+   height: 100vh;
+   width: 500px;
+   max-width: 100%;
+   background: #131313;
+   transform: translateX(105%);
+   transition: .5s;
+   padding: 1em;
+   border: 1px solid #000054;
+
+   section.content {
+      height: 96%;
+      @include Flex-sb-none;
+      flex-direction: column;
+
+      h1.total {
+         @include ClampFont(1.2, 4.5, 1.5);
+         margin-top: .5em;
+      }
+
+      h1.price {
+         &, span { @include ClampFont(1.1, 4.5, 1.4); }
+         text-align: right;
+         text-transform: uppercase;
+
+         span {
+            font-weight: 700;
+            margin-left: .4em;
+         }
+      }
+
+      button {
+         padding: 1em 0;
+         background: rgb(36, 72, 180);
+         outline: 0;
+         border: 0;
+         border-radius: .2em;
+         cursor: pointer;
+
+         &, & > * { transition: .3s; }
+
+         label {
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+            @include ClampFont(1, 4.5, 1.5);
+            text-transform: uppercase;
+            color: $clr-white;
+            letter-spacing: 1px;
+            display: block;
+         }
+
+         &:hover {
+            background: rgb(33, 61, 148);
+
+            label { letter-spacing: 0; transform: scale(.9); }
+         }
+      }
+
+      section.products-container {
+         height: 70%;
+
+         article.basket-item {
+            width: 100%;
+            height: 16%;
+            @include Flex-sb-c;
+            &:not(:last-child) { margin-bottom: 2em; }
+            padding: .5em .25em;
+            background: #252525;
+            border-radius: .15em;
+
+            div.text-info {
+               width: 50%;
+               display: flex;
+               height: 100%;
+               flex-direction: column;
+               justify-content: space-between;
+
+               h4 {
+                  font-weight: 600;
+                  @include ClampFont(.85, 4, 1);
+                  margin-bottom: .5em;
+               }
+
+               h5 {
+                  color: #909090;
+                  font-family: 'KoHo', sans-serif;
+                  font-weight: 700;
+                  @include ClampFont(.8, 4, .95);
+               }
+            }
+
+            div.quantity-info,
+            div.icon { 
+               @include Flex-c-c;
+            }
+
+            div.quantity-info {
+               width: 15%;
+               border-radius: .5em;
+               background: $clr-black;
+               border: 2px solid #909090;
+               @include ClampFont(.9, 4, 1.2);
+               font-weight: 500;
+               letter-spacing: 1px;
+               aspect-ratio: 1;
+            }
+
+            div.icon {
+               width: 10%;
+
+               span {
+                  @include Rectangle(clamp(16px, 5vw, 20px));
+                  cursor: pointer;
+                  transition: .3s;
+                  color: rgb(228, 17, 17);
+
+                  svg {
+                     @include FullSize;
+                     pointer-events: none;
+                  }
+
+                  &:hover {
+                     color: rgb(255, 25, 71);
+                  }
+               }
+            }
+
+            figure {
+               width: 15%;
+               aspect-ratio: 1;
+               overflow: hidden;
+               z-index: 99;
+
+               img {
+                  @include FullSize;
+                  object-fit: cover;
+               }
+            }
+         }
+      }
+   }
+
+   div.empty-cart {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      width: 100%;
+
+      svg {
+         width: 30px;
+         height: 30px;
+         margin: 0 .5em;
+      }
+
+      h2 {
+         @include ClampFont(1.5, 4, 2);
+         width: 100%;
+         font-family: 'KoHo', sans-serif;
+         margin: .5em 0;
+         @include Flex-c-c;
+         text-align: center;
+      }
+   }
+
+   span.one-icon.cart {
+      @include Rectangle(4%);
+      margin: 0 0 0 auto;
+      display: block;
+      cursor: pointer;
+
+      svg {
+         @include FullSize;
+      }
+   }
+
+   @media (max-width: 480px) {
+      padding: .5em 0;
+      border: 0;
+
+      section.content {
+         h1.total { padding-left: .5em; }
+         h1.price { padding-right: .5em; }
+
+         button {
+            width: 90%;
+            margin: 0 auto;
+         }
+      }
+
+      span.one-icon.cart {
+         margin: 0 .75em 0em auto;
+      }
+   }
+}

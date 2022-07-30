@@ -1,0 +1,218 @@
+@import '../config';
+
+main.contact-page {
+   nav { background: $clr-nav; }
+
+   main {
+      background: #272727;
+
+      form {
+         width: 45%;
+         min-width: 450px;
+         padding: 5em;
+
+         button {
+            outline: 0;
+            border: 2px solid rgb(177, 47, 0);
+            background: rgb(234, 67, 6);
+            padding: .75em 0;
+            width: 120px;
+            border-radius: 1em;
+            cursor: pointer;
+            transition: .3s;
+
+            label {
+               font-family: 'KoHo', sans-serif;
+               font-weight: 700;
+               text-transform: uppercase;
+               font-size: 1rem;
+               color: $clr-white;
+            }
+
+            &:hover {
+               background: darken($color: rgb(234, 67, 6), $amount: 5%);
+               box-shadow: 0 0 2px orangered, 0 0 4px orangered;
+            }
+         }
+
+         h1 {
+            text-transform: uppercase;
+            font-family: 'KoHo', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1em;
+         }
+         
+         input,
+         textarea{
+            padding: 1em;
+            outline: 0;
+            border: 0;
+            background: #404040;
+            border-radius: .1em;
+            display: block;
+            width: 100%;
+            margin-bottom: 1em;
+            color: $clr-white;
+            font-size: 1rem;
+            font-family: 'KoHo', sans-serif;
+
+            &::placeholder {
+               font-size: .9rem;
+               text-transform: uppercase;
+               font-weight: 700;
+               color: $clr-white;
+            }
+         }
+
+         textarea {
+            resize: none;
+            height: 250px;
+         }
+      }
+
+      section.informations {
+         background: #353533;
+         padding: 4em;
+         position: relative;
+
+         section.contact-details {
+            position: absolute;
+            border-radius: .2em;
+            width: 35%;
+            right: 0;
+            top: 0;
+            transform: translate(-25%, -50%);
+            background: #404040;
+            padding: 1.5em;
+
+            div {
+               &:not(:last-child) { margin-bottom: 2.5em; }
+               font-family: 'KoHo', sans-serif;
+
+               h2 {
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  @include ClampFont(1.2, 4, 1.5);
+                  width: max-content;
+                  border-bottom: 2px solid $clr-white;
+                  margin-bottom: .5em;
+               }
+
+               p {
+                  @include Flex-none-c;
+                  font-weight: 500;
+                  @include ClampFont(1, 4, 1.1);
+                  color: #d2d2d2;
+                  letter-spacing: 1px;
+
+                  span.clipboard {
+                     @include Rectangle(25px);
+                     margin-left: 1em;
+                     cursor: pointer;
+                     position: relative;
+                     transition: .2s;
+
+                     span {
+                        position: absolute;
+                        font-size: .9rem;
+                        pointer-events: none;
+                        top: 100%;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: $clr-white;
+                     }
+
+                     svg {
+                        pointer-events: none;
+                        @include FullSize;
+                     }
+                  }
+               }
+
+               &:last-child p {
+                  cursor: pointer;
+                  text-transform: uppercase;
+                  position: relative;
+                  width: max-content;
+
+                  &::before {
+                     content: '';
+                     left: 50%;
+                     position: absolute;
+                     top: 100%;
+                     transform: translateX(-50%);
+                     height: 1px;
+                     width: 0%;
+                     background: #d2d2d2;
+                     transition: .4s;
+                  }
+
+                  &:hover {
+                     &::before { width: 100%; }
+                  }
+               }
+            }
+         }
+
+         section.wrap {
+            width: 45%;
+
+            h1 {
+               font-weight: 700;
+               text-transform: uppercase;
+               @include ClampFont(1.75, 5, 3);
+            }
+
+            p {
+               margin: 1.5em 0;
+               @include ClampFont(1, 4, 1.2);
+               font-weight: 600;
+               font-family: 'KoHo', sans-serif;
+            }
+         }
+
+         div.icons {
+            display: flex;
+
+            span {
+               @include Rectangle(35px);
+               margin-right: .75em;
+
+               svg { @include FullSize; }
+            }
+         }
+      }
+
+      @media (max-width: 768px) {
+         form {
+            width: 100%;
+         }
+
+         section.informations {
+            section.contact-details {
+               position: static;
+               transform: translate(0, 0);
+               width: 100%;
+               margin-top: 2em;
+            }
+
+            section.wrap {
+               width: 100%;
+            }
+         }
+      }
+
+      @media (max-width: 480px) {
+         form,
+         section.informations {
+            padding: 4em .5em;
+         }
+
+         form {
+            min-width: auto;
+            textarea { height: 200px; }
+         }
+      }
+   }
+}

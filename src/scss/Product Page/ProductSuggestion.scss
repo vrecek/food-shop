@@ -1,0 +1,90 @@
+@import '../config';
+
+section.product-suggestion {
+   padding-bottom: 5em;
+
+   h1 {
+      @include ClampFont(1.75, 5, 2);
+      font-family: 'KoHo', sans-serif;
+      font-weight: 700;
+      margin-bottom: .5em;
+   }
+
+   section {
+      display: flex;
+      padding-bottom: .5em;
+
+      @media (max-width: 768px){
+         overflow-x: scroll;
+         
+         &::-webkit-scrollbar {
+            height: 8px;
+            background: #303030;
+         }
+   
+         &::-webkit-scrollbar-thumb {
+            height: 4px;
+            background: royalblue;
+            border-radius: .15em;
+         }
+      }
+   }
+
+   article {
+      position: relative;
+      width: 17%;
+      min-width: 130px;
+      aspect-ratio: 1;
+      cursor: pointer;
+
+      &:not(:last-child) {
+         margin-right: 1em;
+      }
+
+      div {
+         z-index: 4;
+         padding: .5em;
+         position: relative;
+         height: 100%;
+
+         h3 {
+            font-family: 'KoHo', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-shadow: 0 0 4px $clr-black;
+         }
+
+         h4 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            @include ClampFont(1, 2, 1.5);
+            padding: .25em .75em;
+            font-weight: 700;
+            background: royalblue;
+            border-radius: .15em 0 0 .15em;
+         }
+      }
+
+      figure {
+         position: absolute;
+         left: 0;
+         top: 0;
+         @include FullSize;
+         overflow: hidden;
+
+         img {
+            display: block;
+            @include FullSize;
+            object-fit: cover;
+            transition: 2s;
+         }
+      }
+
+      &:hover {
+         figure img {
+            transform: scale(1.5);
+         }
+      }
+   }
+}

@@ -1,0 +1,45 @@
+@import '../config';
+
+main.terms-and-conditions {
+   nav { background: $clr-nav; }
+
+   main {
+      background: #272727;
+      color: $clr-white;
+      padding: 5em clamp(.5em, 8vw, 10em);
+
+      h1 {
+         font-weight: 900;
+         font-family: 'Lato', sans-serif;
+         margin-bottom: .5em;
+         @include ClampFont(2, 5, 2.5);
+         text-transform: uppercase;
+      }
+
+      h2 {
+         margin-top: 1em;
+         margin-bottom: .25em;
+         font-weight: 600;
+         @include ClampFont(1.5, 4, 2);
+      }
+
+      p, li {
+         @include ClampFont(1, 4, 1.2);
+         font-family: 'KoHo', sans-serif;
+         font-weight: 500;
+      }
+
+      p { 
+         margin-bottom: 4em; 
+         text-align: justify; 
+         line-height: 1.5em;
+      }
+
+      ul {
+         li {
+            margin-bottom: 1em;
+            &:last-child { margin-bottom: 2.5em; }
+         }
+      }
+   }
+}

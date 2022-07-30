@@ -1,0 +1,212 @@
+@import '../config';
+
+section.popular-product-container {
+   width: 95%;
+   margin: 0 auto;
+
+   h2.popular-product-container { margin: 1em 0 2em 0; }
+
+   section.container {
+      @include Flex-sa-c;
+      flex-wrap: wrap;
+      align-items: stretch;
+
+      article.product {
+         width: 45%;
+         min-width: 600px;
+         flex-wrap: wrap;
+         margin: 0 .25em 3em .25em; 
+         display: flex;
+         background: rgba(244, 244, 244, 0.83);
+         position: relative;
+         
+         figure {
+            width: 40%;
+            overflow: hidden;
+
+            img {
+               @include FullSize;
+               object-fit: cover;
+            }
+         }
+
+         article {
+            width: 60%;
+            padding: .5em 1em;
+            @include Flex-sb-none;
+            flex-direction: column;
+            color: $clr-black;
+
+            ul {
+               list-style: none;
+               flex-wrap: wrap;
+               @include Flex-c-none;
+
+               li {
+                  @include Flex-c-c;
+                  font-family: 'KoHo', sans-serif;
+                  font-size: 1.1rem;
+                  font-weight: 700;
+                  width: 50%;
+                  margin-bottom: 1em;
+
+                  svg {
+                     width: 20px;
+                     height: 20px;
+                     margin-right: .5em;
+                  }
+               }
+            }
+
+            p {
+               font-family: 'KoHo', sans-serif;
+               @include ClampFont(.85, 3, 1);
+               position: relative;
+               text-align: center;
+               font-weight: 600;
+               border-top: 1px solid $clr-black;
+               border-bottom: 1px solid $clr-black;
+               padding: .5em 0;
+               margin: 1em 0 2em 0;
+            }
+
+            section {
+               @include Flex-sb-c;
+               width: 100%;
+               margin: 1.5em 0 2em 0;
+
+               div {
+                  @include Flex-none-c;
+
+                  h4 {
+                     color: goldenrod;
+                     font-size: 1.5rem;
+                     margin-right: .25em;
+                     font-weight: 500;
+                  }
+
+                  span {
+                     @include Rectangle(clamp(20px, 5vw, 25px));
+                     color: whitesmoke;
+
+                     &.active { 
+                        color: goldenrod; 
+                     }
+                     &:not(.active) {
+                        filter: drop-shadow(0px 0px 1px $clr-black);
+                     }
+                     
+                     svg { @include FullSize; }
+                  }
+               }
+
+               h3 {
+                  font-weight: 900;
+                  @include ClampFont(1.5, 4, 1.7);
+               }
+            }
+
+            div.btn-wrap {
+               @include Flex-sb-c;
+               width: 100%;
+
+               button {
+                  padding: clamp(.4em, 2.5vw, .75em) 0;
+                  outline: 0;
+                  border: 0;
+                  cursor: pointer;
+                  color: $clr-white;
+                  @include Flex-sa-c;
+                  border-radius: .15em;
+
+                  span {
+                     @include Rectangle(25px);
+                     pointer-events: none;
+
+                     svg { @include FullSize; }
+                  }
+   
+                  label {
+                     font-family: 'KoHo', sans-serif;
+                     text-transform: uppercase;
+                     font-weight: 700;
+                     display: block;
+                  }
+   
+                  &, & > * { transition: .5s; }
+   
+                  &.add-to-cart {
+                     width: 50%;
+                     background: royalblue;
+                     min-width: 140px;
+                  }
+   
+                  &.redirect {
+                     width: 30%;
+                     min-width: 100px;
+                     background: purple;
+                  }
+
+                  &:hover {
+                     filter: brightness(90%);
+
+                     span {
+                        transform: rotate(360deg);
+                     }
+                  }
+               }
+            }
+
+            h1 {
+               text-align: center;
+               @include ClampFont(1.5, 5, 2);
+               font-weight: 600;
+               font-family: 'KoHo', sans-serif;
+            }
+         }
+
+         @media (max-width: 480px) {
+            figure {
+               position: absolute;
+               left: 0;
+               top: 0;
+               @include FullSize;
+               filter: blur(5px);
+            }
+
+            article {
+               width: 100%;
+               z-index: 3;
+               color: $clr-white;
+               text-shadow: 0 0 2px $clr-black;
+
+               p { border-color: $clr-white; }
+
+               ul { li { svg {
+                  filter: drop-shadow(0 0 1px black);
+               } } }
+
+               section { div {
+                  h4, span.active {
+                     color: gold;
+                  }
+               } }
+            }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      width: 99%;
+
+      section.container {
+         article.product {
+            min-width: auto;
+            width: 600px;
+            max-width: 100%;
+            margin: 0;
+            margin-bottom: 3em;
+         }
+      }
+   }
+}

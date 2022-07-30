@@ -1,0 +1,140 @@
+@import '../config';
+
+section.new-product-container {
+   width: 90%;
+   margin: 0 auto;
+   padding: 4em 0;
+   overflow: hidden;
+
+   section.container {
+      margin-top: 3em;
+      @include Flex-sa-c;
+      align-items: stretch;
+      flex-wrap: wrap;
+      
+      article.product {
+         width: clamp(280px, 28vw, 350px);
+         background: rgba(244, 244, 244, 0.83);
+         border-radius: .15em;
+         color: #101010;
+         margin: 0 .5em 3em .5em;
+
+         figure {
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+
+            img {
+               @include FullSize;
+               object-fit: cover;
+            }
+         }
+         
+         article {
+            padding: .5em;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            div.btn-wrap {
+               @include Flex-sb-none;
+
+               button {
+                  width: 100%;
+                  padding: clamp(.3em, 2.8vw, .75em) 0;
+                  outline: 0;
+                  border: 0;
+                  border-radius: .15em;
+                  cursor: pointer;
+                  position: relative;
+                  color: $clr-white;
+                  overflow: hidden;
+
+                  &.redirect { width: 30%; background: purple; }
+                  &.add-to-cart { width: 55%; background: royalblue; }
+   
+                  &, & * {
+                     transition: .5s;
+                  }
+   
+                  span {
+                     position: absolute;
+                     left: 50%;
+                     transform: translate(-50%, 0);
+                     top: 105%;
+                     pointer-events: none;
+                     @include Rectangle(25px);
+   
+                     svg { @include FullSize; }
+                  }
+   
+                  label {
+                     font-weight: 700;
+                     font-family: 'KoHo', sans-serif;
+                     @include ClampFont(.9, 2, 1.1);
+                     text-transform: uppercase;     
+                     display: block;     
+                  }
+   
+                  &:hover {
+                     &.redirect { background: darken($color: purple, $amount: 10%); }
+                     &.add-to-cart { background: darken($color: royalblue, $amount: 20%); }
+   
+                     label { transform: translateY(-200%); }
+   
+                     span { 
+                        top: 50%;  
+                        transform: translate(-50%, -50%);
+                     }
+                  }
+               }
+            }
+
+            div.wrap {
+               @include Flex-sb-none;
+
+               h3 {
+                  @include ClampFont(1, 3, 1.5);
+                  width: 75%;
+                  font-weight: 900;
+                  font-family: 'Lato', sans-serif;
+               }
+   
+               h4 {
+                  font-weight: 600;
+                  @include ClampFont(1.3, 4, 1.5);
+               }
+            }
+
+            p {
+               font-family: 'KoHo', sans-serif;
+               font-weight: 500;
+               margin-bottom: .5em;
+               @include ClampFont(.85, 3, 1);
+            }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      width: 98%;
+   }
+
+   @media (max-width: 480px) {
+      section.container {
+         align-items:flex-start;
+
+         article.product {
+            figure {
+               height: 130px;
+            }
+
+            article {
+               p { display: none; }
+               div.wrap { margin-bottom: 1em; }
+            }
+         }
+      }
+   }
+}

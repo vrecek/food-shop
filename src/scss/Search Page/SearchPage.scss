@@ -1,0 +1,245 @@
+@import '../config';
+
+main.search-page {
+   nav { background: $clr-nav; }
+
+   div.background-image.search-background div.search-background {
+      backdrop-filter: blur(5px);
+      padding-bottom: 4em;
+      
+      main {
+         min-height: calc(100vh - 64px);
+         margin: 0 auto;
+         width: 80%;
+
+         div.search-bar {
+            width: 500px;
+            max-width: 95%;
+            margin: 0 auto 1em auto;
+            display: flex;
+   
+            input {
+               width: 90%;
+               border-radius: .1em 0 0 .1em;
+               outline: 0;
+               padding: 0 1em;
+               color: $clr-white;
+               font-family: 'KoHo', sans-serif;
+               @include ClampFont(.9, 4, 1.2);
+               background: rgba(34, 34, 34, 0.9);
+               border: 1px solid orangered;
+            }
+   
+            span {
+               width: 10%;
+               aspect-ratio: 1;
+               background: orangered;
+               @include Flex-c-c;
+   
+               svg {
+                  width: 50%;
+                  height: 50%;
+               }
+            }
+         }
+
+         figure.empty-search {
+            width: 400px;
+            max-width: 90%;
+            margin: 0 auto;
+            overflow: hidden;
+            
+            img {
+               width: 100%;
+            }
+         }
+
+         section.result-container {
+            min-height: 60vh;
+            position: relative;
+
+            div.loadingcss {
+               border-radius: .2em;
+               overflow: hidden;
+            }
+         }
+   
+         section.prod-container {
+            border: 1px solid rgba(255, 68, 0, 0.9);
+            border-radius: .2em;
+            padding: 1em;
+            height: inherit;
+            background: rgba(30, 30, 30, .95);
+
+            article.searched-product {
+               &:not(:last-child) { margin-bottom: 8em; }
+               display: flex;
+               height: 250px;
+
+               figure {
+                  width: 32%;
+                  min-width: 200px;
+                  height: 100%;
+
+                  img {
+                     @include FullSize;
+                     object-fit: cover;
+                  }
+               }
+
+               section {
+                  width: 67%;
+                  padding: 0 1em .5em 1em;
+                  @include Flex-sb-none;
+                  flex-direction: column;
+
+                  h4 {
+                     @include ClampFont(1.2, 4.5, 1.75);
+                     font-weight: 300;
+                     border-bottom: 1px solid $clr-white;
+                     width: max-content;
+                     color: rgb(231, 228, 228);
+                  }
+
+                  div.btn-wrap {
+                     display: flex;
+
+                     button {
+                        margin-right: .75em;
+                        width: clamp(90px, 23vw, 125px);
+                        padding: .7em 0;
+                        @include Flex-sa-c;
+                        outline: 0;
+                        border: 0;
+                        background: none;
+                        border-radius: .15em;
+                        color: $clr-white;
+                        cursor: pointer;
+                        transition: .5s;
+
+                        &.add-to-cart {
+                           border: 1px solid royalblue;
+                           color: rgb(79, 121, 247);
+
+                           &:hover { background: royalblue; color: $clr-white; }
+                        }
+
+                        &.redirect {
+                           border: 1px solid rgb(202, 2, 202);
+                           color: rgb(215, 44, 215);
+
+                           &:hover { background: rgb(202, 2, 202); color: $clr-white; }
+                        }
+
+                        label {
+                           font-family: 'KoHo', sans-serif;
+                           font-weight: 600;
+                           @include ClampFont(.85, 4, 1);
+                        }
+
+                        span {
+                           @include Rectangle(15px);
+                           
+                           svg {
+                              @include FullSize;
+                           }
+                        }
+                     }
+                  }
+                  
+                  div.wrap {
+                     h1 {
+                        margin-bottom: .5em;
+                        @include ClampFont(1.25, 5, 2.25);
+                        font-weight: 200;
+                        font-family: 'KoHo', sans-serif;
+                     }
+
+                     div.stars {
+                        display: flex;
+
+                        span {
+                           @include Rectangle(clamp(15px, 4.5vw, 22px));
+
+                           &.active { color: gold; }
+
+                           svg {
+                              @include FullSize;
+                           }
+                        }
+                     }
+                  }
+               }
+            }
+         }
+         
+         h1.title {
+            &,
+            span { @include ClampFont(1.2, 5, 1.75); }
+
+            padding: 2em 0;
+            font-family: 'KoHo', sans-serif;
+            
+            span {
+               font-weight: 700;
+               margin-left: .5em;
+            }
+         }
+      }
+
+      @media (max-width: 768px) {
+         backdrop-filter: blur(2px);
+
+         main {
+            width: 99%;
+
+            h1.title { margin-left: .75em; }
+
+            section.prod-container {
+               padding: .25em;
+            }
+         }
+      }
+
+      @media (max-width: 480px) {
+         backdrop-filter: blur(2px);
+
+         main {
+            section.prod-container {
+               background: rgba(30, 30, 30, .8);
+
+               article.searched-product {
+                  height: auto;
+                  flex-direction: column;
+                  
+                  figure {
+                     width: 100%;
+                     height: auto;
+                     aspect-ratio: 2;
+                     margin-bottom: .5em;
+                     overflow: hidden;
+                  }
+
+                  section {
+                     width: 100%;
+
+                     h4 {
+                        margin: 1em 0;
+                        border: 0;
+                     }
+
+                     div.btn-wrap {
+                        justify-content: space-between;
+
+                        button {
+                           width: 49%;
+                           margin: 0;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}

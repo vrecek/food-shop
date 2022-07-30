@@ -1,0 +1,183 @@
+@import '../config';
+
+main.product-page {
+   nav { background: $clr-nav; }
+
+   div.background-image.search-background div.search-background {
+      backdrop-filter: blur(3px);
+      position: relative;
+   }
+
+   main {
+      min-height: calc(100vh - 64px);
+
+      section.product-suggestion,
+      section.cont-ingredients,
+      section.cont-info {
+         width: 90%;
+         margin: 0 auto;
+      }
+
+      section.basic-info {
+         @include Flex-sa-none;
+         padding: 4em 0;
+
+         section.image {
+            height: 80vh;
+            width: 35%;
+            @include Flex-c-c;
+            overflow: hidden;
+
+            figure img {
+               width: 100%;
+            }
+         }
+
+         section.details {
+            width: 40%;
+
+            h1.name,
+            h3.category,
+            h2.price {
+               font-family: 'KoHo', sans-serif;
+               font-weight: 600;
+            }
+
+            h1.name {
+               @include ClampFont(2.2, 8, 3.5);
+               font-weight: 700;
+            }
+
+            h3.category {
+               @include ClampFont(1, 4, 1.5);
+            }
+
+            p {
+               font-weight: 500;
+               font-family: 'KoHo', sans-serif;
+               margin-top: 1.5em;
+            }
+
+            h2.price {
+               @include ClampFont(1.75, 4, 2.25);
+               margin: 2rem 0;
+            }
+
+            button {
+               width: 100%;
+               padding: 1em 0;
+               border-radius: 2em;
+               outline: 0;
+               border: 0;
+               background: rgb(59, 96, 208);
+               @include Flex-c-c;
+               color: $clr-white;
+               text-transform: uppercase;
+               cursor: pointer;
+               
+               &, & > * { transition: .3s }
+
+               span {
+                  @include Rectangle(20px);
+                  margin-left: .5em;
+
+                  svg { @include FullSize; }
+               }
+
+               label {
+                  display: block;
+                  font-weight: 600;
+                  font-family: 'KoHo', sans-serif;
+                  font-size: 1.2rem;
+               }
+
+               &:hover {
+                  background: rgb(44, 74, 164);
+
+                  span {
+                     margin-left: 1.5em;
+                  }
+
+                  span,
+                  label {
+                     transform: scale(1.2);
+                  }
+               }
+            }
+
+            div.size-select {
+               margin: 2.5rem 0;
+
+               h4 {
+                  text-transform: uppercase;
+                  font-weight: 700;
+                  margin-bottom: 1em;
+               }
+
+               ul {
+                  display: flex;
+                  list-style: none;
+                  @include Flex-sb-c;
+
+                  li {
+                     width: 20%;
+                     min-width: 60px;
+                     aspect-ratio: 2;
+                     border-radius: .15em;
+                     @include Flex-c-c;
+                     background: rgba(255, 255, 255, 0.8);
+                     color: $clr-black;
+                     cursor: pointer;
+                     transition: .3s;
+                     font-weight: 700;
+                     font-family: 'KoHo', sans-serif;
+                     font-size: 1.25rem;
+                     
+                     &.active {
+                        transform: scale(1.2);
+                        background: royalblue;
+                        color: $clr-white;
+                     }
+                  }
+               }
+            }
+
+            div.stars {
+               display: flex;
+               margin-top: .5em;
+
+               span {
+                  @include Rectangle(25px);
+                  
+                  &.active { color: gold; }
+
+                  svg { @include FullSize; }
+               }
+            }
+         }
+      }
+
+      @media (max-width: 768px) {
+         section.product-suggestion,
+         section.cont-ingredients,
+         section.cont-info {
+            width: 95%;
+            margin: 0 auto;
+         }
+
+         section.basic-info {
+            flex-direction: column;
+
+            section.image {
+               height: auto;
+               width: 100%;
+            }
+
+            section.details {
+               width: 100%;
+               padding: 0 .5em;
+            }
+         }
+      }
+   }
+}

@@ -1,0 +1,91 @@
+@import '../config';
+
+footer {
+   background: rgb(105, 50, 11);
+   background: $clr-nav;
+   padding: 4em 0;
+
+   section.lists,
+   section.finish {
+      margin: 0 auto;
+      width: 80%
+   }
+
+   section.lists {
+      @include Flex-sb-c;
+
+      ul {
+         list-style: none;
+
+         li {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 900;
+            @include ClampFont(.7, 3, 1.2);
+            margin-bottom: .4em;
+            cursor: pointer;
+            transition: .3s;
+            font-family: 'Lato', sans-serif;
+
+            &:hover {
+               color: rgb(178, 197, 255);
+            }
+         }
+      }
+
+      figure {
+         overflow: hidden;
+         width: 10%;
+
+         img {
+            @include FullSize;
+            object-fit: cover;
+         }
+      }
+   }
+
+   section.finish {
+      border-top: 1px solid $clr-white;
+      padding-top: 3em;
+      margin-top: 3em;
+
+      p {
+         text-align: center;
+         text-transform: uppercase;
+         @include ClampFont(.8, 3, .9);
+         font-weight: 700;
+         margin-top: 2em;
+      }
+
+      div.icons {
+         @include Flex-c-c;
+
+         span {
+            @include Rectangle(clamp(30px, 8vw, 50px));
+            transition: .4s;
+            margin: 0 .5em;
+            cursor: pointer;
+
+            svg {
+               @include FullSize;
+            }
+
+            &:hover {
+               transform: scale(1.2);
+               filter: drop-shadow(0 0 3px royalblue);
+            }
+         }
+      }
+   }
+
+   @media (max-width: 768px) {
+      section.lists {
+         figure { display: none; }
+      }
+   }
+
+   @media (max-width: 480px) {
+      section.lists,
+      section.finish { width: 95%; }
+   }
+}
