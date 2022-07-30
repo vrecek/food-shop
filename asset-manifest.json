@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/food-shop/static/css/main.96d0208c.css",
+    "main.js": "/food-shop/static/js/main.29c8318e.js",
+    "static/js/787.299d722b.chunk.js": "/food-shop/static/js/787.299d722b.chunk.js",
+    "static/media/slide2.jpg": "/food-shop/static/media/slide2.dc295ca535654ed47853.jpg",
+    "static/media/header.jpg": "/food-shop/static/media/header.b18fee65b0dcc0232fdf.jpg",
+    "static/media/slide1.jpg": "/food-shop/static/media/slide1.e1940d4fd0a11f83fc9c.jpg",
+    "static/media/user3.jpg": "/food-shop/static/media/user3.74052b931eef2a859ac8.jpg",
+    "static/media/slide3.jpg": "/food-shop/static/media/slide3.fd6f12c33e918c3632eb.jpg",
+    "static/media/user2.jpg": "/food-shop/static/media/user2.b17d5be09f86d7ef898e.jpg",
+    "static/media/mainBack.jpg": "/food-shop/static/media/mainBack.c0e245577db4f8f1dce4.jpg",
+    "static/media/user1.jpg": "/food-shop/static/media/user1.d7f0feee4bf9cb93be1d.jpg",
+    "static/media/search.jpg": "/food-shop/static/media/search.daf10fe5c3aedd9a54c7.jpg",
+    "static/media/oth1.jpg": "/food-shop/static/media/oth1.c0171436dc65ff82922e.jpg",
+    "static/media/pizz1.jpg": "/food-shop/static/media/pizz1.b427ebb33af2b7794600.jpg",
+    "static/media/drink1.jpg": "/food-shop/static/media/drink1.ae36ebb15a513fd38a55.jpg",
+    "static/media/drink2.jpg": "/food-shop/static/media/drink2.4f7b09d264cae20db61d.jpg",
+    "static/media/burg1.jpg": "/food-shop/static/media/burg1.a1ed4af9d0a02998237b.jpg",
+    "static/media/pizz3.jpg": "/food-shop/static/media/pizz3.f4776e00e498d2ee1b14.jpg",
+    "static/media/pizz2.jpg": "/food-shop/static/media/pizz2.1d63d74f180097737f32.jpg",
+    "static/media/fries1.jpg": "/food-shop/static/media/fries1.b775089092b6120f61da.jpg",
+    "static/media/fries2.jpg": "/food-shop/static/media/fries2.cc9812cf2133c42e0aef.jpg",
+    "static/media/search_empty.png": "/food-shop/static/media/search_empty.da27922ccdaa185eba2a.png",
+    "static/media/burg2.jpg": "/food-shop/static/media/burg2.54415fd94a1735da8350.jpg",
+    "static/media/dess1.jpg": "/food-shop/static/media/dess1.f3e0d125658d453153a2.jpg",
+    "static/media/logo.png": "/food-shop/static/media/logo.0a45f9f385a8d168ea0f.png",
+    "index.html": "/food-shop/index.html",
+    "main.96d0208c.css.map": "/food-shop/static/css/main.96d0208c.css.map",
+    "main.29c8318e.js.map": "/food-shop/static/js/main.29c8318e.js.map",
+    "787.299d722b.chunk.js.map": "/food-shop/static/js/787.299d722b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96d0208c.css",
+    "static/js/main.29c8318e.js"
+  ]
+}
